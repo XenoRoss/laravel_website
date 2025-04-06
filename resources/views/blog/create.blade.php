@@ -1,4 +1,4 @@
-<x-blog-layout>
+<x-main-layout>
     <div class="my-3 px-6 py-6"> 
         @if (session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded mb-4">
@@ -22,4 +22,4 @@
             </button>
         </form>
     </div>
-</x-blog-layout>
+</x-main-layout>

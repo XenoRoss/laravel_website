@@ -1,4 +1,4 @@
-<x-blog-layout>
+<x-main-layout :showCreate="true">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 px-6">
         <!-- Main Blog Post: spans 9 of 12 columns on large screens -->
         <div class="lg:col-span-9 max-w-3xl mx-auto">
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <!-- Sidebar: occupies 3 columns on large screens -->
+        <!-- Sidebar: occupies 3 of 12 columns on large screens -->
         <div class="lg:col-span-3 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg sticky top-20">
             <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Recent Posts
@@ -38,4 +38,4 @@
             </ul>
         </div>
     </div>
-</x-blog-layout>
+</x-main-layout>

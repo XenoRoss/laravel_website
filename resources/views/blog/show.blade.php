@@ -1,4 +1,4 @@
-<x-blog-layout>
+<x-main-layout>
     <div class="max-w-4xl mx-auto">
         <!-- Post Title -->
         <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -14,11 +14,17 @@
                             Edit Post
                         </a>
                     </div>
-                    <form action="{{ route('blog.destroy', $post->slug) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');" class="inline-block">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="inline-block bg-red-500 hover:bg-red-600 text-white-800 font-semibold py-2 px-4 rounded">Delete</button>
-                    </form>
+                    <x-confirm-modal
+                        title="Delete Post"
+                        message="Are you sure you want to delete this post? This action cannot be undone."
+                        action="{{ route('blog.destroy', $post->slug) }}"
+                        method="DELETE"
+                        confirmationLabel="Yes, Delete"
+                    >
+                        <x-slot:trigger>
+                            <button type="button" class="inline-block bg-red-500 hover:bg-red-600 text-white-800 font-semibold py-2 px-4 rounded">Delete</button>
+                        </x-slot:trigger>
+                    </x-confirm-modal>
                 </div>
             @endauth
         </div>
@@ -37,4 +43,4 @@
             {!! $post->body !!}
         </div>
     </div>
-</x-blog-layout>
+</x-main-layout>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Think of this as the main layout for the blog -->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8" />
@@ -15,10 +14,18 @@
         <!-- Pull in Tailwind & the JS build scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-gray-100 dark:bg-gray-900 min-h-screen">
-        <x-navbar /> <!-- This is a Blade component for the navigation bar -->
-        <div class="my-10 px-6 py-12">
-            @yield('content') <!-- This is where the blog view content gets injected -->
-        </div>
+    <body class="bg-gray-100 dark:bg-gray-900 min-h-screen flex flex-col">
+        <!-- Main site wrapper -->    
+
+        <x-navbar :showCreate="$showCreate ?? false"/> <!-- This is a Blade component for the navigation bar -->
+        
+        <main class="my-10 px-6 py-12 flex-grow">
+            @yield('content') <!-- This is where the page view content gets injected -->
+        </main>
+        
+        <footer class="bg-gray-200 dark:bg-gray-800 min-h-32">
+            <x-footer />
+        </footer>
     </body>
+    
 </html>
