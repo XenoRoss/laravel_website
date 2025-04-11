@@ -8,7 +8,7 @@
         
         <h1 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Write a New Blog Post</h1>
 
-        <form method="POST" action="{{ route('blog.store') }}">
+        <form method="POST" action="{{ route('blog.store') }}" class="text-gray-700 dark:text-gray-300">
             @csrf
 
             <label for="title" class="block font-medium text-gray-700 dark:text-gray-300">Title:</label>
