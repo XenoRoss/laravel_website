@@ -41,6 +41,12 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
+        if ($this->email !== 'erykross34@gmail.com') {
+            throw ValidationException::withMessages([
+                'email' => 'Access denied.',
+            ]);
+        }
+
         if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 

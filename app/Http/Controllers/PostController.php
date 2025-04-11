@@ -110,7 +110,7 @@ class PostController extends Controller
 
         // Redirect back to the post
         return redirect()->route('blog.show', $post->slug)
-                            ->with('success', 'Post created!');
+                            ->with('success', 'Post updated!');
     }
 
     public function destroy($slug)
