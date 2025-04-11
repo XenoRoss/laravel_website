@@ -3,7 +3,7 @@
         <!-- Main Blog Post: spans 9 of 12 columns on large screens -->
         <div class="lg:col-span-9 max-w-3xl mx-auto">
             <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                {{ $mainPost->title }}
+                <a href="{{ route('blog.show', $mainPost->slug) }}">{{ $mainPost->title }}</a>
             </h1>
             <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
                 Posted on {{ $mainPost->created_at->format('F j, Y') }}

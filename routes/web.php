@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 Route::prefix('blog')->middleware('auth')->group(function () {
     Route::get('create', [PostController::class, 'create'])->name('blog.create'); // Secured blog post creation form
     Route::post('/', [PostController::class, 'store'])->name('blog.store'); // This will handle form submission and save the post
-    Route::get('slug}/edit',[PostController::class, 'edit'])->name('blog.edit'); // Get the edit page for an existing blog post
+    Route::get('{slug}/edit',[PostController::class, 'edit'])->name('blog.edit'); // Get the edit page for an existing blog post
     Route::put('{slug}', [PostController::class, 'update'])->name('blog.update'); // Update an existing blog post
     Route::delete('{slug}', [PostController::class, 'destroy'])->name('blog.destroy'); // Delete a blog post
 });
