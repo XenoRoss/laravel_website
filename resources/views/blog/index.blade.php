@@ -14,7 +14,7 @@
                 </p>
             @endif
             <div class="prose dark:prose-invert max-w-none">
-                {!! nl2br(e($mainPost->body)) !!}
+                {!! $mainPost->body !!}
             </div>
         </div>
 
