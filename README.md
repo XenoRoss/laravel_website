@@ -7,60 +7,93 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Xenoross Laravel Website
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This is a personal Laravel-based website project designed to serve as a portfolio, dev blog, and sandbox for experimenting with backend/frontend integration. It's built with **Laravel**, **MySQL**, and **Alpine.js**, and hosted on a self-managed **Proxmox LXC container**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The site currently consists of a homepage and a blog section. Authenticated users (just me, for now) can create, edit, and delete posts. All users can read them. Posts are stored in a MySQL database and rendered with Blade components.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Homepage with dynamic cards**  
+  Each card links to internal or external content; external links open in new tabs.
+  
+- **Blog system**  
+  The latest post is highlighted, with the five most recent posts shown in a sidebar layout.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Auth-protected blog controls**  
+  Admin-only blog creation, editing, and deletion through a non-public login route.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Dark mode toggle**  
+  Uses Tailwind and stores the user’s theme preference in browser localStorage.
 
-## Laravel Sponsors
+- **Blade component-driven layout**  
+  Header, footer, and content areas are all modular and reusable.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Icon support**  
+  Includes icons via [Lucide](https://lucide.dev/) and [SimpleIcons](https://simpleicons.org/).
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Tech Stack
 
-## Contributing
+- **Backend**: Laravel, MySQL
+- **Frontend**: Blade, TailwindCSS, Alpine.js
+- **Hosting**: Proxmox LXC container, Nginx reverse proxy, Cloudflare SSL
+- **Package Management**: Composer (PHP), npm (Node)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Deployment Notes
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The app is hosted inside a Proxmox LXC container with a shared ZFS dataset. Laravel and MySQL are installed directly within the same container for simplicity.
 
-## Security Vulnerabilities
+### Initial Setup
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+apt update && apt upgrade -y
+apt install -y php php-cli php-mbstring php-xml php-bcmath php-curl php-mysql php-zip php-gd php-tokenizer php-common mysql-server unzip curl git composer
+```
+
+### Composer & Laravel
+```bash
+composer install --no-dev --optimize-autoloader
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+```
+
+### Node.js & Asset Compilation
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+apt remove libnode-dev -y    # Prevents header conflicts on Ubuntu 22.04
+apt install -y nodejs npm
+npm install
+npm run build
+```
+
+Make sure your MySQL user credentials match your .env file, and that Laravel has permission to write to the storage and bootstrap/cache directories.
+
+---
+
+## Known Issues / Roadmap
+
+- [ ] Handle edge case where no blog posts exist (currently breaks layout)
+- [ ] Add ISS tracker widget on homepage
+- [ ] Modularize more components (e.g., modal confirmations)
+- [ ] Add user roles (admin vs regular)
+- [ ] Potential Docker or Ansible deployment down the line
+
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT — use it, fork it, break it, improve it. Just don’t claim it as your own.
+
+---
+
+## Author
+
+**Eryk Ross** — [xenoross.com](https://xenoross.com)
