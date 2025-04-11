@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Xenoross Laravel Website
+# XenoRoss's Laravel Website
 
 This is a personal Laravel-based website project designed to serve as a portfolio, dev blog, and sandbox for experimenting with backend/frontend integration. It's built with **Laravel**, **MySQL**, and **Alpine.js**, and hosted on a self-managed **Proxmox LXC container**.
 
