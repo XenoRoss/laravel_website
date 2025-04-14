@@ -13,10 +13,10 @@
             @method('PUT') <!-- HTML forms can't send PUT, so Laravel fakes it -->
 
             <label for="title" class="block font-medium text-gray-700 dark:text-gray-300">Title:</label>
-            <input type="text" id="title" name="title" value="{{ old('title', $post->title) }}" class="w-full mb-4">
+            <input type="text" id="title" name="title" value="{{ old('title', $post->title) }}" class="w-full mb-4 dark:bg-gray-800">
 
             <label for="body" class="block font-medium text-gray-700 dark:text-gray-300">Body (Markdown):</label>
-            <textarea id="body" name="body" rows="10" class="w-full mb-6">{{ old('body', $post->markdown_body) }}</textarea>
+            <textarea id="body" name="body" rows="10" class="w-full mb-6 dark:bg-gray-800">{{ old('body', $post->markdown_body) }}</textarea>
 
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
                 Update Post
