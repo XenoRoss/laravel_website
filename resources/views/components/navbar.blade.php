@@ -1,6 +1,6 @@
 @props(['showCreate' => false])
 
-<nav class="fixed top-0 left-0 right-0 w-full overflow-x-hidden z-50 h-24">
+<nav class="fixed top-0 left-0 right-0 w-full overflow-x-hidden z-50 h-16">
     <div class="bg-gray-200 dark:bg-gray-800 transition-colors duration-300 w-full h-full">
         <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
             <!-- Outer flex container spans the full height -->
