@@ -1,7 +1,7 @@
 <x-main-layout :showCreate="true">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 px-6">
         <!-- Main Blog Post: spans 9 of 12 columns on large screens -->
-        <div class="lg:col-span-9 max-w-3xl mx-auto">
+        <div class="lg:col-span-9 max-w-3xl w-full mx-auto">
             <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 <a href="{{ route('blog.show', $mainPost->slug) }}">{{ $mainPost->title }}</a>
             </h1>
@@ -13,7 +13,7 @@
                     Edited: {{ $mainPost->updated_at->format('F j, Y') }}
                 </p>
             @endif
-            <div class="prose dark:prose-invert max-w-none">
+            <div class="prose dark:prose-invert">
                 {!! $mainPost->body !!}
             </div>
         </div>
