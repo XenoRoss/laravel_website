@@ -1,37 +1,38 @@
 @props(['showCreate' => false])
 
-<nav class="fixed top-0 left-0 right-0 w-full overflow-x-hidden z-50">
-    <div class="bg-gray-200 dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="h-16 flex flex-col sm:flex-row sm:justify-between items-center">
-
-                <!-- Left side (can be replaced with logo) -->
+<nav class="fixed top-0 left-0 right-0 w-full overflow-x-hidden z-50 h-16">
+    <div class="bg-gray-200 dark:bg-gray-800 transition-colors duration-300 w-full h-full">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <!-- Outer flex container spans the full height -->
+            <div class="h-full flex items-center justify-between">
+                
+                <!-- Left side: Home link -->
                 <a href="{{ route('home') }}"
-                   class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">
+                   class="h-full flex items-center text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">
                     Home
                 </a>
-
-                <!-- Right side (links + hamburger) -->
-                <div class="flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-6 items-center">
-
+                
+                <!-- Right side: Create, Blog, Hamburger -->
+                <div class="flex items-center space-x-6">
+                    
                     @if($showCreate)
                         @auth
                             <a href="{{ route('blog.create') }}"
-                               class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">
+                               class="h-full flex items-center text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">
                                 Create Post
                             </a>
                         @endauth
                     @endif
-
+                    
                     <a href="{{ route('blog.index') }}"
-                       class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">
+                       class="h-full flex items-center text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">
                         Blog
                     </a>
-
-                    <!-- Hamburger Button -->
+                    
+                    <!-- Hamburger Menu -->
                     <div class="relative" x-data="{ menuOpen: false }">
                         <button @click="menuOpen = !menuOpen"
-                                class="rounded transition-colors duration-200 ease-in-out"
+                                class="h-full flex items-center justify-center rounded transition-colors duration-200 ease-in-out"
                                 :class="{ 'bg-gray-300 dark:bg-gray-900': menuOpen }">
                             <svg class="w-7 h-7 text-gray-800 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -55,7 +56,7 @@
                             </ul>
                         </div>
                     </div>
-
+                    
                 </div>
             </div>
         </div>
