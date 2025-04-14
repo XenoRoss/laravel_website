@@ -3,7 +3,7 @@
 <nav class="fixed top-0 left-0 right-0 w-full overflow-x-hidden z-50">
     <div class="bg-gray-200 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row sm:justify-between py-2">
+            <div class="h-16 flex flex-col sm:flex-row sm:justify-between items-center">
 
                 <!-- Left side (can be replaced with logo) -->
                 <a href="{{ route('home') }}"
@@ -12,7 +12,7 @@
                 </a>
 
                 <!-- Right side (links + hamburger) -->
-                <div class="flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-4">
+                <div class="flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-6 items-center">
 
                     @if($showCreate)
                         @auth
