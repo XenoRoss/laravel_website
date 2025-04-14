@@ -7,7 +7,7 @@
             </h1>
             <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
 	            Posted on {{ $mainPost->created_at->format('F j, Y') }}
-	            @if ($post->created_at != $mainPost->updated_at)
+	            @if ($mainPost->created_at != $mainPost->updated_at)
 		            <span class="ml-2 italic">(Updated: {{ $mainPost->updated_at->format('F j, Y') }})</span>
 	            @endif
             </p>
