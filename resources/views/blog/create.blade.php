@@ -12,10 +12,10 @@
             @csrf
 
             <label for="title" class="block font-medium text-gray-700 dark:text-gray-300">Title:</label>
-            <input type="text" id="title" name="title" class="w-full mb-4">
+            <input type="text" id="title" name="title" class="w-full mb-4 dark:bg-gray-800">
 
             <label for="body" class="block font-medium text-gray-700 dark:text-gray-300">Body (Markdown):</label>
-            <textarea id="body" name="body" rows="10" class="w-full mb-6"></textarea>
+            <textarea id="body" name="body" rows="10" class="w-full mb-6 dark:bg-gray-800"></textarea>
 
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
                 Publish
