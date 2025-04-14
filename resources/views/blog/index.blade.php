@@ -6,13 +6,11 @@
                 <a href="{{ route('blog.show', $mainPost->slug) }}">{{ $mainPost->title }}</a>
             </h1>
             <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
-                Posted on {{ $mainPost->created_at->format('F j, Y') }}
+	            Posted on {{ $mainPost->created_at->format('F j, Y') }}
+	            @if ($post->created_at != $mainPost->updated_at)
+		            <span class="ml-2 italic">(Updated: {{ $mainPost->updated_at->format('F j, Y') }})</span>
+	            @endif
             </p>
-            @if ($mainPost->created_at != $mainPost->updated_at)
-                <p class="text-sm text-gray-400">
-                    Edited: {{ $mainPost->updated_at->format('F j, Y') }}
-                </p>
-            @endif
             <div class="prose dark:prose-invert">
                 {!! $mainPost->body !!}
             </div>
